@@ -1,0 +1,10 @@
+/*seletor normal*/
+ 
+h1 {color: red;}
+h2 {color: blue;}
+h3 {color: darkblue;}
+/* Classes */
+.alcool {color: purple;}
+/* por id*/
+p {color: green;}
+#horario {color: orange;}

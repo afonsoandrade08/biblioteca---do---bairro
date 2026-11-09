@@ -1,289 +1,22 @@
-/* ==========================================
-   Biblioteca do Bairro
-   Resolução dos Exercícios 01 a 09
-   Data: Outubro de 2026
-   Nome: Afonso Andrade
-   ========================================== */
-
-/* 1. VARIÁVEIS (Exercício 09) */
+* ===== Variáveis ===== */
 :root {
-    --cor-principal: #23395B;
-    --cor-destaque: #A84B33;
-    --cor-fundo: #FFF8F0;
-    --cor-texto: #333333;
-    --cor-cartao: #FFFFFF;
-    --cor-borda: #E5DED3;
-    --raio: 12px;
-}
-
-/* 2. REGRAS BASE & RESET (Exercício 01, 03 & 04) */
-* {
-    box-sizing: border-box; /* Exercício 04 */
-}
-
-body {
-    margin: 0;
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.125rem; /* ~18px em rem */
-    line-height: 1.6;
-}
-
-h1, h2, h3 {
-    font-family: "Lora", Georgia, serif;
-    color: var(--cor-principal);
-}
-
-h1 { font-size: 2.5rem; }
-h2 { font-size: 1.75rem; }
-h3 { font-size: 1.25rem; }
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/*  3. ELEMENTOS DE TEXTO & DECORAÇÃO (Exercício 02, 03 & 05) */
-/* Exercício 02 */
-.destaque {
-    color: var(--cor-destaque);
-    font-weight: bold;
-}
-
-/* Exercício 03 */
-.etiqueta {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--cor-destaque);
-    font-size: 0.875rem;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-/* Exercício 02 */
-li:first-child {
-    font-weight: bold;
-}
-
-/* Exercício 05 */
-.aviso {
-    background: linear-gradient(90deg, #E07A5F, #F2CC8F);
-    color: #FFFFFF;
-    text-align: center;
-    padding: 0.5rem 1rem;
-    font-weight: bold;
-}
-
-.aviso p {
-    margin: 0;
-}
-
-/* 4. BOTÕES E LINKS (Exercício 05 & 09) */
-a {
-    color: var(--cor-principal);
-    transition: color 0.2s ease;
-}
-
-/* Exercício 09*/
-a:hover {
-    color: var(--cor-destaque);
-}
-
-a:focus-visible,
-.botao:focus-visible {
-    outline: 3px solid var(--cor-principal);
-    outline-offset: 3px;
-}
-
-.botao {
-    display: inline-block;
-    padding: 0.6rem 1.4rem;
-    background: var(--cor-destaque);
-    color: #FFFFFF;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-.botao:hover {
-    background: #873A28;
-    color: #FFFFFF;
-}
-
-.botao:active {
-    transform: translateY(2px);
-}
-
-/*  5. COMPONENTES & CARTÕES (Exercício 04, 05 & 09) */
-.cartao {
-    background: var(--cor-cartao);
-    padding: 1.5rem;
-    border: 1px solid var(--cor-borda);
-    border-radius: var(--raio);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Exercício 09 */
-.cartao:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-}
-
-/* Exercício 05 */
-.equipa img {
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-}
-
-/* 6. LAYOUT FLEXBOX & GRID BASE (Telemóvel - Mobile First)
-   Exercícios 04, 06, 07 & 08 */
-
-/* Exercício 05 & 06 */
-.cabecalho {
-    background: var(--cor-principal);
-    color: #FFF8F0;
-    padding: 1.5rem 2rem;
-    display: flex;
-    flex-direction: column; 
-    gap: 1rem;
-}
-
-.cabecalho h1 {
-    color: #FFF8F0;
-    margin: 0;
-}
-
-.cabecalho nav ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.cabecalho nav a {
-    color: #FFF8F0;
-    text-decoration: none; 
-}
-
-.cabecalho nav a:hover {
-    color: #F2CC8F;
-}
-
-
-main {
-    padding: 2rem 1rem;
-}
-
-section {
-    padding: 1rem 0;
-}
-
-/* Exercício 06 */
-.cartoes {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.cartoes .cartao {
-    flex: 1 1 250px;
-}
-
-/* Exercício 07 */
-.catalogo {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-}
-
-/*Exercício 06 */
-.rodape {
-    background: #1D2D44;
-    color: #FFF8F0;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.rodape h4 {
-    margin-top: 0;
-    color: #F2CC8F;
-}
-
-/* 7. DESIGN RESPONSIVO / MEDIA QUERIES (Exercício 08) */
-
-
-@media (min-width: 768px) {
-    .cabecalho {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .cabecalho nav ul {
-        flex-direction: row;
-        gap: 1.5rem;
-    }
-
-    .cartoes {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .catalogo {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .rodape {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-}
-
-
-@media (min-width: 1024px) {
-    /* Exercício 07*/
-    body {
-        display: grid;
-        grid-template-columns: 1fr 280px;
-        grid-template-areas:
-            "topo     topo"
-            "aviso    aviso"
-            "conteudo lateral"
-            "rodape   rodape";
-    }
-
-    .cabecalho { grid-area: topo; }
-    .aviso     { grid-area: aviso; }
-    main       { grid-area: conteudo; max-width: 960px; margin: 0 auto; width: 100%; }
-    aside      { grid-area: lateral; padding: 2rem 1rem; background: rgba(0, 0, 0, 0.02); }
-    .rodape    { grid-area: rodape; }
-
-    /* Exercício 07 */
-    .catalogo {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .destaque-livro {
-        grid-column: span 2;
-    }
-    :root {
     --cor-principal: #7a4a2b;
     --cor-fundo: #faf6f0;
     --cor-cartao: #ffffff;
     --cor-texto: #2b2b2b;
+    --cor-aviso: #f3d9a4;
 }
-
+ 
+/* ===== Base ===== */
+* {
+    box-sizing: border-box;
+}
+ 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+ 
 body {
     font-family: "Lora", serif;
     background: var(--cor-fundo);
@@ -291,77 +24,38 @@ body {
     margin: 0;
     line-height: 1.6;
 }
-
+ 
+h1, h2, h3, h4 {
+    margin: 0 0 0.5rem;
+}
+ 
+h2 {
+    color: var(--cor-principal);
+    border-bottom: 2px solid var(--cor-aviso);
+    padding-bottom: 0.3rem;
+    margin-bottom: 1.2rem;
+}
+ 
+/* ===== Cabeçalho e menu ===== */
 .cabecalho {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
     padding: 1rem 2rem;
     background: var(--cor-principal);
     color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
-
-nav ul { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
-nav a { color: white; text-decoration: none; }
-nav a:hover { text-decoration: underline; }
-
-.aviso { background: #f3d9a4; text-align: center; padding: 0.5rem; }
-
-main, aside { max-width: 960px; margin: 0 auto; padding: 1rem 2rem; }
-
-.catalogo, .cartoes {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-}
-
-.cartao {
-    background: var(--cor-cartao);
-    padding: 1.2rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-}
-.cartao:hover { transform: translateY(-4px); }
-
-.etiqueta {
-    background: var(--cor-principal);
-    color: white;
-    padding: 0.2rem 0.6rem;
-    border-radius: 999px;
-    font-size: 0.8rem;
-}
-
-.botao {
-    display: inline-block;
-    background: var(--cor-principal);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    text-decoration: none;
-}
-.botao:hover { opacity: 0.85; }
-
-.rodape {
+ 
+nav ul {
     display: flex;
-    justify-content: space-around;
-    background: #2b2b2b;
-    color: white;
-    padding: 1.5rem;
-    margin-top: 2rem;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
-
-html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
-button.botao {
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 1rem;
-}
-button.botao:disabled {
-    opacity: 0.6;
-    cursor: default;
-}
-}
-
   

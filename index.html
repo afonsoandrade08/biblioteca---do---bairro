@@ -1,143 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <!-- Exercício 08 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca do Bairro</title>
-
-    <!-- Exercício 03 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-
-    <!-- Exercício 01 -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <!-- Exercício 06 & 07 -->
-    <header class="cabecalho">
-        <div class="logo">
-            <h1>Biblioteca do Bairro</h1>
-        </div>
-        <!-- Exercício 02 & 06 -->
-        <nav>
-            <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#catalogo">Catálogo</a></li>
-                <li><a href="#eventos">Eventos</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Exercício 05 -->
-    <div class="aviso">
-        <p>Feira do Livro · 13 a 15 de novembro</p>
-    </div>
-
-    
-    <main>
-        <!-- Exercício 02' -->
-        <section id="inicio">
-            <p class="destaque">Bem-vindo à Biblioteca do Bairro! Livros, eventos e leitura para todos, desde 1987.</p>
-        </section>
-
-        <!-- Exercício 07 -->
-        <section id="catalogo">
-            <h2>Catálogo de Livros</h2>
-            <div class="catalogo">
-                <article class="cartao destaque-livro">
-                    <span class="etiqueta">Destaque do Mês</span>
-                    <h3>O Principezinho</h3>
-                    <p>Antoine de Saint-Exupéry</p>
-                </article>
-
-                <article class="cartao">
-                    <h3>Ensaio sobre a Cegueira</h3>
-                    <p>José Saramago</p>
-                </article>
-
-                <article class="cartao">
-                    <h3>Os Maias</h3>
-                    <p>Eça de Queirós</p>
-                </article>
-
-                <article class="cartao">
-                    <h3>Mensagem</h3>
-                    <p>Fernando Pessoa</p>
-                </article>
-
-                <article class="cartao">
-                    <h3>A Cidade e as Serras</h3>
-                    <p>Eça de Queirós</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- Exercício 04, 05 & 06 -->
-        <section id="eventos">
-            <h2>Próximos Eventos</h2>
-            <div class="cartoes">
-                <article class="cartao">
-                    <span class="etiqueta">Infantil</span>
-                    <h3>Hora do Conto</h3>
-                    <p>Sábado, 10h30 · Sala Infantil</p>
-    
-                    <a href="#" class="botao">Inscrever-me</a>
-                </article>
-
-                <article class="cartao">
-                    <span class="etiqueta">Workshops</span>
-                    <h3>Oficina de Escrita</h3>
-                    <p>Quarta, 18h00 · Sala 2</p>
-                    <a href="#" class="botao">Inscrever-me</a>
-                </article>
-
-                <article class="cartao">
-                    <span class="etiqueta">Comunidade</span>
-                    <h3>Clube de Leitura</h3>
-                    <p>Quinta, 18h30 · Sala Principal</p>
-                    <a href="#" class="botao">Inscrever-me</a>
-                </article>
-            </div>
-        </section>
-
-        <!-- Exercício 02  e Exercício 05  -->
-        <section id="sobre" class="equipa">
-            <h2>A Nossa Equipa</h2>
-            <ul>
-                <li>Ana Silva — Diretora</li>
-                <li>João Santos — Bibliotecário</li>
-                <li>Maria Costa — Eventos</li>
-            </ul>
-        </section>
-    </main>
-
-    <!-- Exercício 07 -->
-    <aside>
-        <h3>Horário de Funcionamento</h3>
+@@ -130,6 +130,8 @@ <h3>Horário de Funcionamento</h3>
         <p>Segunda a Sexta: 09h00 - 19h00</p>
         <p>Sábado: 10h00 - 13h00</p>
         <p>Domingo: Fechado</p>
+
+        <button onclick="showAlert()">Clique aqui para informações!</button>
     </aside>
 
     <!-- Exercício 06 -->
-    <footer class="rodape">
-        <div>
-            <h4>Morada</h4>
-            <p>Rua das Flores, 12</p>
-        </div>
-        <div>
-            <h4>Contactos</h4>
-            <p>contacto@biblioteca.pt</p>
-        </div>
-        <div>
-            <h4>Redes Sociais</h4>
-            <p>@bibliotecadobairro</p>
+@@ -148,7 +150,7 @@ <h4>Redes Sociais</h4>
         </div>
     </footer>
-<script src="src.js"></script>
+
+    <button class="voltar-topo" id="voltar-topo" type="button" aria-label="Voltar ao topo" hidden>↑ </button>
+   
+
 </body>
 </html>

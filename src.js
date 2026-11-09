@@ -1,108 +1,96 @@
-// ===== Funções da biblioteca =====
- 
-// 01 - 0,50 € por dia a partir do 16.º dia (os primeiros 15 dias não pagam)
+const botaoVoltarTopo = document.getElementById("voltar-topo");
+// Afonso Andrade - 2026-06-05
+
+function atualizarBotaoVoltarTopo() {
+    botaoVoltarTopo.hidden = window.scrollY < 300;
+}
+
+const nomeBiblioteca = "Biblioteca do Bairro";
+const morada = "Rua Principal, nº 10";
+let livrosDisponiveis = 1250;
+
+console.log("=== EXERCÍCIO 01 ===");
+console.log("Bem-vindo à Biblioteca do Bairro!");
+console.log("Anos desde a abertura (1987):", 2026 - 1987);
+
+console.log("\n=== EXERCÍCIO 02 ===");
+livrosDisponiveis -= 3;
+console.log("Livros após 3 empréstimos:", livrosDisponiveis);
+console.log(`A ${nomeBiblioteca} tem ${livrosDisponiveis} livros disponíveis.`);
+console.log("Tipo de 'nomeBiblioteca':", typeof nomeBiblioteca);
+console.log("Tipo de 'morada':", typeof morada);
+console.log("Tipo de 'livrosDisponiveis':", typeof livrosDisponiveis);
+console.log("Nome em maiúsculas:", nomeBiblioteca.toUpperCase());
+
+console.log("\n=== EXERCÍCIO 03 ===");
+const dia = "quarta";
+const hora = 14;
+let estadoBiblioteca;
+
+if (dia === "domingo") {
+    estadoBiblioteca = "Fechada";
+} else if (dia === "sábado") {
+    if (hora >= 10 && hora < 13) {
+        estadoBiblioteca = "Aberta";
+    } else {
+        estadoBiblioteca = "Fechada";
+    }
+} else {
+    if (hora >= 9 && hora < 19) {
+        estadoBiblioteca = "Aberta";
+    } else {
+        estadoBiblioteca = "Fechada";
+    }
+}
+
+console.log(`Estado (${dia}, ${hora}h):`, estadoBiblioteca);
+
+console.log("\n=== EXERCÍCIO 04 ===");
 function calcularMulta(dias) {
     if (dias <= 15) {
         return 0;
     }
-    return (dias - 15) * 0.5;
+    return (dias - 15) * 0.50;
 }
- 
-// 02 - Horário: Seg-Sex 09h-19h, Sábado 10h-13h, Domingo fechado
-// dia: 0 = domingo, 1 = segunda, ..., 6 = sábado (como em Date.getDay())
-// hora: número, por exemplo 9.5 para as 09h30
-function estaAberta(dia, hora) {
-    if (dia >= 1 && dia <= 5) {
-        return hora >= 9 && hora < 19;
-    }
-    if (dia === 6) {
-        return hora >= 10 && hora < 13;
-    }
-    return false; // domingo
+
+function estaAberta(diaSemana, horaAtual) {
+    if (diaSemana === "domingo") return false;
+    if (diaSemana === "sábado") return horaAtual >= 10 && horaAtual < 13;
+    return horaAtual >= 9 && horaAtual < 19;
 }
- 
-// 03 - Ex.: 3.5 -> "3,50 €"
+
 function formatarEuros(valor) {
-    return valor.toFixed(2).replace(".", ",") + " €";
+    return `${valor.toFixed(2).replace(".", ",")} €`;
 }
- 
-// 04 - Ex.: 22 dias -> "Multa a pagar: 3,50 €"
+
 function mensagemMulta(dias) {
     const multa = calcularMulta(dias);
     if (multa === 0) {
         return "Sem multa";
     }
-    return "Multa a pagar: " + formatarEuros(multa);
+    return `Multa a pagar: ${formatarEuros(multa)}`;
 }
- 
-// ===== 05 - Testes (três valores por função) =====
- 
-console.log("--- calcularMulta ---");
-console.log(calcularMulta(10)); // 0
-console.log(calcularMulta(16)); // 0.5
-console.log(calcularMulta(22)); // 3.5
- 
-console.log("--- estaAberta ---");
-console.log(estaAberta(2, 10));   // terça às 10h  -> true
-console.log(estaAberta(6, 14));   // sábado às 14h -> false
-console.log(estaAberta(0, 11));   // domingo       -> false
- 
-console.log("--- formatarEuros ---");
-console.log(formatarEuros(3.5));  // "3,50 €"
-console.log(formatarEuros(0));    // "0,00 €"
-console.log(formatarEuros(12.3)); // "12,30 €"
- 
-console.log("--- mensagemMulta ---");
-console.log(mensagemMulta(5));    // "Sem multa"
-console.log(mensagemMulta(22));   // "Multa a pagar: 3,50 €"
-console.log(mensagemMulta(30));   // "Multa a pagar: 7,50 €"
- 
- 
-// ===== Lista de leituras =====
- 
-// 01 - Array com cinco títulos
-const leituras = [
-    "Os Maias",
-    "Mensagem",
-    "O Principezinho",
-    "Ensaio sobre a Cegueira",
-    "A Cidade e as Serras"
-];
- 
-// 02 - Juntar mais dois com push e mostrar quantos são
-leituras.push("Memorial do Convento");
-leituras.push("Amor de Perdição");
-console.log("--- Lista de leituras ---");
-console.log("Total de títulos: " + leituras.length); // 7
- 
-// 03 - Lista numerada
-for (let i = 0; i < leituras.length; i++) {
-    console.log((i + 1) + ". " + leituras[i]);
-}
- 
-// 04 - Com filter, só os títulos com mais de 10 letras
-const titulosLongos = leituras.filter(function (titulo) {
-    return titulo.length > 10;
+
+window.addEventListener("scroll", atualizarBotaoVoltarTopo);
+atualizarBotaoVoltarTopo();
+console.log("Multa para 20 dias:", mensagemMulta(20));
+console.log("Biblioteca aberta na terça às 10h?", estaAberta("terça", 10));
+
+console.log("\n=== EXERCÍCIO 05 ===");
+const livros = ["Os Maias", "Mensagem", "A Sibila", "Os Lusíadas", "Aparição"];
+livros.push("Memorial do Convento", "Ensaio sobre a Cegueira");
+console.log("Total de livros na lista:", livros.length);
+
+console.log("Lista numerada de livros:");
+livros.forEach((tituloLivro, indice) => {
+    console.log(`${indice + 1}. ${tituloLivro}`);
 });
-console.log("Títulos com mais de 10 letras:", titulosLongos);
- 
-// 05 - Com map, títulos em maiúsculas
-const titulosMaiusculas = leituras.map(function (titulo) {
-    return titulo.toUpperCase();
+
+const livrosLongos = livros.filter(titulo => titulo.length > 10);
+console.log("Livros com mais de 10 letras:", livrosLongos);
+
+botaoVoltarTopo.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
 });
-console.log("Em maiúsculas:", titulosMaiusculas);
- 
- 
-// ===== Botões de inscrição =====
- 
-const botoesInscricao = document.querySelectorAll(".botao");
-const mensagemInscricao = document.getElementById("mensagem-inscricao");
- 
-botoesInscricao.forEach(function (botao) {
-    botao.addEventListener("click", function () {
-        const evento = botao.dataset.evento;
-        botao.textContent = "Inscrito ✓";
-        botao.disabled = true;
-        mensagemInscricao.textContent = "Inscrição confirmada: " + evento;
-    });
-});
+const livrosMaiusculas = livros.map(titulo => titulo.toUpperCase());
+console.log("Livros em maiúsculas:", livrosMaiusculas);

@@ -1,18 +1,44 @@
-@@ -130,6 +130,8 @@ <h3>Horário de Funcionamento</h3>
-        <p>Segunda a Sexta: 09h00 - 19h00</p>
-        <p>Sábado: 10h00 - 13h00</p>
-        <p>Domingo: Fechado</p>
+ <h1>Biblioteca do Bairro</h1>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#eventos">Eventos</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contacto">Contacte-nos</a></li>
+            </ul>
+        </nav>
+    </header>
+@@ -113,6 +114,13 @@ <h2>A Nossa Equipa</h2>
+                <li>Maria Costa — Eventos</li>
+            </ul>
+        </section>
 
-        <button onclick="showAlert()">Clique aqui para informações!</button>
-    </aside>
+        <section id="contacto">
+            <h2>Contactos</h2>
+            <p>Tem alguma dúvida? Entre em contacto connosco.</p>
+            <p>Email: <a href="mailto:contacto@biblioteca.pt">contacto@biblioteca.pt</a></p>
+            <p>Morada: Rua das Flores, 12</p>
+        </section>
+    </main>
 
-    <!-- Exercício 06 -->
-@@ -148,7 +150,7 @@ <h4>Redes Sociais</h4>
+    <!-- Exercício 07 -->
+@@ -139,5 +147,21 @@ <h4>Redes Sociais</h4>
         </div>
     </footer>
 
-    <button class="voltar-topo" id="voltar-topo" type="button" aria-label="Voltar ao topo" hidden>↑ </button>
-   
+    <button class="voltar-topo" id="voltar-topo" type="button" aria-label="Voltar ao topo" hidden>↑ Topo</button>
 
+    <script>
+        const botaoVoltarTopo = document.getElementById("voltar-topo");
+
+        function atualizarBotaoVoltarTopo() {
+            botaoVoltarTopo.hidden = window.scrollY < 300;
+        }
+
+        window.addEventListener("scroll", atualizarBotaoVoltarTopo);
+        atualizarBotaoVoltarTopo();
+
+        botaoVoltarTopo.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
 </body>
 </html>
